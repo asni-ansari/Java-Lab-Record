@@ -1,11 +1,11 @@
 //Lab Cycle 1
-// Task 6
+// Task 7
 
-// Program to find the largest element in an array
+// Program to count positive, negative and zero numbers using enhanced for loop
 
 import java.util.Scanner;
 
-public class MaximumElement {
+public class CountNumbers {
 
     public static void main(String[] args) {
 
@@ -13,7 +13,10 @@ public class MaximumElement {
         Scanner input = new Scanner(System.in);
 
         // Declare variables
-        int n, max;
+        int n;
+        int positive = 0;
+        int negative = 0;
+        int zero = 0;
 
         // Read the size of the array
         System.out.print("N = ");
@@ -35,20 +38,25 @@ public class MaximumElement {
                 arr[i] = input.nextInt();
             }
 
-            // Assume the first element is the largest
-            max = arr[0];
+            // Count positive, negative and zero numbers
+            // using enhanced for loop
+            for (int num : arr) {
 
-            // Find the largest element
-            for (int i = 1; i < n; i++) {
-
-                if (arr[i] > max) {
-                    max = arr[i];
+                if (num > 0) {
+                    positive++;
                 }
-
+                else if (num < 0) {
+                    negative++;
+                }
+                else {
+                    zero++;
+                }
             }
 
             // Display the result
-            System.out.println("\nLargest element = " + max);
+            System.out.println("\nPositive numbers = " + positive);
+            System.out.println("Negative numbers = " + negative);
+            System.out.println("Zeros = " + zero);
         }
 
         // Close Scanner
