@@ -1,4 +1,36 @@
-package PACKAGE_NAME;
+import java.util.Scanner;
 
 public class MarksProcessor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] marks = new int[5];
+
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.print("Enter mark " + (i + 1) + ": ");
+                marks[i] = sc.nextInt();
+            }
+
+            // ArrayIndexOutOfBoundsException can occur if an invalid index is used.
+            System.out.println("First mark = " + marks[0]);
+
+            int subjectCount = 5;
+            int sum = 0;
+
+            for (int mark : marks) {
+                sum += mark;
+            }
+
+            double average = (double) sum / subjectCount;
+            System.out.println("Average = " + average);
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Invalid array index.");
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero.");
+        } finally {
+            System.out.println("Processing complete");
+            sc.close();
+        }
+    }
 }
